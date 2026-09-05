@@ -186,27 +186,7 @@
             
             <!-- Video Section -->
             <section class="mb-20">
-            <div class="video-container transform transition duration-500 hover:scale-[1.02]">
-                <div class="video-inner overflow-hidden p-0 relative bg-fondo-oscuro">
-                    <!-- VIDEO NATIVO (Permite Autoplay) -->
-                    <video 
-                        class="absolute top-0 left-0 w-full h-full object-cover rounded-[0.75rem]" 
-                        autoplay 
-                        muted 
-                        loop 
-                        playsinline>
-                        <!-- Acá se cargará el archivo local -->
-                        <source src="./descargo.mp4" type="video/mp4">
-                        Tu navegador no soporta el formato de video.
-                    </video>
-                    
-                    <!-- Botón superpuesto para activar sonido -->
-                    <button onclick="let v = this.previousElementSibling; v.muted = !v.muted; this.classList.toggle('bg-celeste'); this.classList.toggle('text-fondo-oscuro')" class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full p-2.5 text-white shadow-lg hover:scale-110 transition-all z-10" title="Activar/Desactivar Sonido">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5 10v4a2 2 0 002 2h2.586l3.707 3.707A.996.996 0 0015 19V5a.996.996 0 00-1.707-.707L9.586 8H7a2 2 0 00-2 2z"></path></svg>
-                    </button>
-                </div>
-            </div>
-        </section>
+            <div class="video-container transform transition duration-500 hover:scale-[1.02]" style="background: linear-gradient(45deg, #38b6ff, #00bf63); padding: 4px; border-radius: 1rem; box-shadow: 0 10px 30px -5px rgba(56, 182, 255, 0.4), 0 10px 30px -5px rgba(0, 191, 99, 0.4); max-width: 400px; margin: 0 auto;">\n                <div class="video-inner overflow-hidden relative bg-white" style="border-radius: 0.8rem; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center;">\n                    <iframe src="https://www.instagram.com/reel/Dc1_Fh0Odj8/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>\n                </div>\n            </div>\n          </section>
 
         <!-- Manifesto Section -->
         <section class="text-center mb-16">
