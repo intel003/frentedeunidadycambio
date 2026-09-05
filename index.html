@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frente de Unidad y Cambio - Celeste y Verde</title>
+    <link rel="icon" href="./logo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'celeste': '#38b6ff',
+                        'verde': '#00bf63',
+                        'fondo-oscuro': '#0B0F19',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.90)), url('./fondo.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10rem 1rem 10rem 1rem;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            aspect-ratio: 9 / 16;
+            border-radius: 1rem;
+            background: linear-gradient(45deg, #38b6ff, #00bf63);
+            padding: 4px;
+            box-shadow: 0 10px 30px -5px rgba(56, 182, 255, 0.4), 0 10px 30px -5px rgba(0, 191, 99, 0.4);
+        }
+        .video-inner {
+            background-color: #0B0F19;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        /* Animación suave para la primera mitad del texto */
+        @keyframes smoothColorSwap1 {
+          0%   { color: #38b6ff; } /* Inicia Celeste */
+          50%  { color: #00bf63; } /* Se funde a Verde */
+          100% { color: #38b6ff; } /* Vuelve a Celeste */
+        }
+
+        /* Animación suave para la segunda mitad del texto */
+        @keyframes smoothColorSwap2 {
+          0%   { color: #00bf63; } /* Inicia Verde */
+          50%  { color: #38b6ff; } /* Se funde a Celeste */
+          100% { color: #00bf63; } /* Vuelve a Verde */
+        }
+
+        /* Aplicación de las clases con transición suave */
+        /* Aumentamos el tiempo a 3 segundos (3s) y usamos 'ease-in-out' para que el fundido sea perfecto */
+        .color-swap-1 {
+          animation: smoothColorSwap1 3s ease-in-out infinite; 
+        }
+
+        .color-swap-2 {
+          animation: smoothColorSwap2 3s ease-in-out infinite;
+        }
+
+        /* Efecto LED suave (respiración) para Celeste */
+        @keyframes ledPulseCeleste {
+          0%, 100% {
+            text-shadow: 0 0 5px rgba(56, 182, 255, 0.2), 0 0 10px rgba(56, 182, 255, 0.1);
+            opacity: 0.85;
+          }
+          50% {
+            text-shadow: 0 0 10px rgba(56, 182, 255, 0.6), 0 0 20px rgba(56, 182, 255, 0.4), 0 0 30px rgba(56, 182, 255, 0.2);
+            opacity: 1;
+          }
+        }
+
+        /* Efecto LED suave (respiración) para Verde */
+        @keyframes ledPulseVerde {
+          0%, 100% {
+            text-shadow: 0 0 5px rgba(0, 191, 99, 0.2), 0 0 10px rgba(0, 191, 99, 0.1);
+            opacity: 0.85;
+          }
+          50% {
+            text-shadow: 0 0 10px rgba(0, 191, 99, 0.6), 0 0 20px rgba(0, 191, 99, 0.4), 0 0 30px rgba(0, 191, 99, 0.2);
+            opacity: 1;
+          }
+        }
+
+        .led-celeste {
+          animation: ledPulseCeleste 3s ease-in-out infinite;
+        }
+
+        .led-verde {
+          animation: ledPulseVerde 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-fondo-oscuro text-white font-sans antialiased overflow-x-hidden">
+    
+    <!-- Navbar / Zócalo Superior -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#0B0F19]/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-[72px]">
+                <!-- Logo y Marca -->
+                <div class="flex items-center gap-3">
+                    <img src="./logo.png" alt="Logo Celeste y Verde" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover object-center border-2 border-white/10 shadow-[0_0_10px_rgba(56,182,255,0.3)]">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-[8px] md:text-[10px] text-gray-300 font-bold tracking-widest uppercase">Unidad Mercantil</span>
+                        <span class="text-sm md:text-base font-black uppercase tracking-wide">Frente <span class="text-celeste">Celeste</span> <span class="text-white">y</span> <span class="text-verde">Verde</span></span>
+                    </div>
+                </div>
+                <!-- Menú Desktop -->
+                <div class="hidden lg:flex items-center space-x-8 text-sm md:text-base font-black tracking-widest">
+                    <a href="index.html" class="text-[#38b6ff] hover:text-white transition drop-shadow-md">INICIO</a>
+                    <a href="prensa.html" class="text-[#00bf63] hover:text-white transition drop-shadow-md">PRENSA</a>
+                </div>
+                <!-- Menú Hamburguesa (Mobile) -->
+                <div class="lg:hidden flex items-center">
+                    <button class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="hero-section text-center relative overflow-hidden">
+        
+        <!-- Contenido Superior -->
+        <div class="relative z-20 flex flex-col items-center w-full max-w-4xl">
+            <div class="mb-8 animate-pulse">
+                <span class="bg-[#0f172a] border border-celeste text-celeste text-[10px] sm:text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-celeste/20">
+                    ⭐ RESISTENCIA MERCANTIL
+                </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-black mb-8 leading-tight drop-shadow-2xl uppercase tracking-wide">
+                <span class="color-swap-1">FRENTE DE</span> 
+                <span class="color-swap-2">UNIDAD Y CAMBIO</span>
+            </h1>
+            
+            <p class="text-[#E5E7EB] text-lg md:text-xl lg:text-2xl font-medium max-w-3xl drop-shadow-lg leading-relaxed">
+                Nos proscribieron una boleta, pero despertaron a un movimiento imparable. 
+                La <span class="led-celeste" style="color: #38b6ff; font-size: 1.25em; font-weight: 900;">Celeste</span> y 
+                <span class="led-verde" style="color: #00bf63; font-size: 1.25em; font-weight: 900;">Verde</span> 
+                es la única agrupación que no se rinde, no tranza y pelea por el bolsillo de los empleados de comercio.
+            </p>
+        </div>
+    </header>
+
+    <!-- Fondo panorámico para Video y Manifiesto (Se ve a los costados) -->
+    <div class="relative w-full z-10 -mt-20 md:-mt-28">
+        <!-- Imagen de fondo extendida con opacidad -->
+        <div class="absolute inset-0 z-0">
+            <img src="./conductoras.jpg" alt="Fondo Conductoras" class="w-full h-full object-cover opacity-40 object-top md:object-center">
+            <!-- Gradientes para fundir los bordes superior e inferior con el color de fondo general -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B0F19] via-transparent to-[#0B0F19]"></div>
+            <div class="absolute inset-0 bg-[#0B0F19]/40"></div> <!-- Oscurece un poco más para que no compita -->
+        </div>
+
+        <!-- Main Content -->
+        <main class="container mx-auto px-5 pb-16 max-w-3xl relative z-20 pt-10 md:pt-16">
+            
+            <!-- Video Section -->
+            <section class="mb-20">
+            <div class="video-container transform transition duration-500 hover:scale-[1.02]">
+                <div class="video-inner overflow-hidden p-0 relative bg-fondo-oscuro">
+                    <!-- VIDEO NATIVO (Permite Autoplay) -->
+                    <video 
+                        class="absolute top-0 left-0 w-full h-full object-cover rounded-[0.75rem]" 
+                        autoplay 
+                        muted 
+                        loop 
+                        playsinline>
+                        <!-- Acá se cargará el archivo local -->
+                        <source src="./descargo.mp4" type="video/mp4">
+                        Tu navegador no soporta el formato de video.
+                    </video>
+                    
+                    <!-- Botón superpuesto para activar sonido -->
+                    <button onclick="let v = this.previousElementSibling; v.muted = !v.muted; this.classList.toggle('bg-celeste'); this.classList.toggle('text-fondo-oscuro')" class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full p-2.5 text-white shadow-lg hover:scale-110 transition-all z-10" title="Activar/Desactivar Sonido">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5 10v4a2 2 0 002 2h2.586l3.707 3.707A.996.996 0 0015 19V5a.996.996 0 00-1.707-.707L9.586 8H7a2 2 0 00-2 2z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto Section -->
+        <section class="text-center mb-16">
+            <h2 class="text-2xl md:text-3xl font-extrabold mb-8 text-white drop-shadow-lg">
+                Proscripción a la Lista <span class="led-celeste" style="color: #38b6ff;">Celeste</span> y <span class="led-verde" style="color: #00bf63;">Verde</span> <br class="hidden md:block" /> en las elecciones del SEC
+            </h2>
+            
+            <div class="bg-[#0B0F19]/70 border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl text-left backdrop-blur-md">
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                    <strong class="text-white">¡Un atropello a la democracia sindical!</strong> A través de un fallo de la justicia laboral impulsado por el oficialismo, nuestra lista fue proscripta y dejada fuera de los comicios del <strong>3 de septiembre de 2026</strong>.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                    Denunciamos las artimañas de una Junta Electoral que nunca entregó los padrones. A pesar de los aprietes, la persecución y los allanamientos a nuestras oficinas, no tenemos miedo. Vamos a impugnar esta resolución.
+                </p>
+                <div class="mt-8 p-5 bg-[#0f172a] border-l-4 border-celeste rounded-r-lg shadow-inner">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider animate-pulse">Dato Crítico</span>
+                        <h3 class="text-white font-bold text-lg">El Fallo de la Proscripción (Expte. 33643/2026)</h3>
+                    </div>
+                    <p class="text-sm md:text-base text-gray-300 mb-4 leading-relaxed">
+                        Este fallo proscriptivo fue emitido el <strong>2 de septiembre a las 18:49 hs con 40 segundos</strong>, apenas horas antes de las elecciones del 3 de septiembre. La impugnación fue exigida por <strong class="underline text-white">Omar Mario Tedesco</strong> (apoderado de la Lista Azul oficialista) y concedida mediante esta resolución por los jueces <strong class="underline text-white">Víctor Arturo Pesino</strong> y <strong class="underline text-white">María Dora González</strong> (Sala VIII).
+                        <br><br>
+                        Al lanzar este documento al borde de las 19:00 hs —mucho después del cierre horario de los tribunales—, nos empujaron a un estado de <strong>absoluta indefensión</strong>. Fue material y temporalmente imposible interponer cualquier recurso o amparo legal para defender la lista antes de que abrieran las urnas. Nos bajaron de la elección usando un peritaje sobre 1.238 firmas nuestras que jamás consintimos ni pudimos controlar.
+                    </p>
+                    <a href="./EXPTENro336432026.pdf" target="_blank" class="inline-flex items-center text-[#38b6ff] hover:text-white font-black transition-all text-sm uppercase tracking-wide">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        LEER IMPUGNACIÓN COMPLETA
+                    </a>
+                </div>
+
+                <p class="text-verde font-bold text-lg md:text-xl text-center mt-8">
+                    ¡Este es el comienzo de una nueva historia!
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA Buttons -->
+        <section class="flex flex-col gap-4 max-w-md mx-auto">
+            <!-- Botón Principal -->
+            <a href="https://whatsapp.com/channel/0029Vb8SAuhBlHpfccqM6Q3B" target="_blank" rel="noopener noreferrer" class="bg-verde hover:bg-[#00d160] text-fondo-oscuro font-extrabold py-4 px-6 rounded-xl shadow-[0_0_20px_rgba(0,185,85,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-center text-lg flex items-center justify-center gap-2">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                SUMATE AL CANAL DE WHATSAPP ↗
+            </a>
+
+            <!-- Botón Secundario -->
+            <a href="#" class="bg-celeste hover:bg-[#4eb3ff] text-fondo-oscuro font-bold py-3.5 px-6 rounded-xl shadow-[0_0_15px_rgba(51,161,253,0.3)] transition-all duration-300 transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                📄 LEER LA IMPUGNACIÓN LEGAL ↗
+            </a>
+
+            <!-- Botón Terciario -->
+            <a href="#" class="bg-transparent border-2 border-verde text-verde hover:bg-verde hover:text-fondo-oscuro font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                ▶ VER MENSAJE EN INSTAGRAM ↗
+            </a>
+        </section>
+    </main>
+    </div>
+    
+    <!-- Speed Dial (Floating Socials) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col-reverse items-end gap-3 group">
+        <!-- Main Toggle Button -->
+        <button class="w-14 h-14 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(220,39,67,0.5)] hover:scale-110 transition-transform duration-300 z-50 cursor-pointer">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </button>
+
+        <!-- Social Icons Menu -->
+        <div class="flex flex-col gap-3 opacity-0 translate-y-4 pointer-events-none transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+            <!-- Email -->
+            <a href="mailto:celesteverdesec@gmail.com" class="w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Enviar Email">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z"/></svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://whatsapp.com/channel/0029Vb8SAuhBlHpfccqM6Q3B" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.012 2c5.506 0 9.99 4.475 9.99 9.98 0 2.14-.683 4.122-1.838 5.74L21.43 22l-4.39-1.15a9.92 9.92 0 0 1-5.028 1.35c-5.506 0-9.99-4.475-9.99-9.98S6.506 2 12.012 2zm0 1.637c-4.604 0-8.353 3.743-8.353 8.343 0 1.828.587 3.518 1.583 4.908l.147.205-1.306 3.86 3.96-1.04.195.116a8.27 8.27 0 0 0 3.774.912c4.604 0 8.353-3.743 8.353-8.343S16.616 3.637 12.012 3.637zm4.72 11.233c-.258-.13-1.528-.755-1.764-.842-.236-.087-.408-.13-.58.13-.172.26-.667.842-.818 1.015-.15.174-.301.196-.56.066-.258-.13-1.09-.402-2.077-1.284-.768-.686-1.287-1.534-1.437-1.794-.15-.26-.016-.401.113-.53.116-.115.258-.302.387-.453.13-.151.173-.26.26-.432.086-.173.043-.324-.022-.454-.065-.13-.58-1.401-.795-1.92-.21-.506-.423-.438-.58-.446-.15-.007-.323-.009-.495-.009-.172 0-.451.065-.688.324-.236.26-.903.883-.903 2.152 0 1.27.924 2.498 1.053 2.671.129.173 1.821 2.781 4.412 3.899 2.59 1.118 2.59.745 3.064.69.474-.055 1.528-.624 1.743-1.226.215-.602.215-1.118.15-1.226-.064-.108-.236-.173-.495-.303z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/people/lacelesteyverde26/61592849967235/?rdid=PwjcaA0hxwKBBQ2A&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1UxQdXSRJZ%2F" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-[#1877F2] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/celesteverde_sec?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="https://x.com/Celesteyverde?s=20" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform border border-white/20" aria-label="X (Twitter)">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+        </div>
+    </div>
+    
+        <!-- Seguinos Section -->
+    <section class="bg-[#080d17] py-16 border-t border-white/5 relative z-20">
+        <div class="container mx-auto px-5 text-center">
+            <h2 class="text-2xl md:text-3xl font-extrabold mb-10 text-white drop-shadow-lg">
+                📲 Sumate a nuestros <span class="text-celeste">canales</span>
+            </h2>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-12 max-w-4xl mx-auto">
+                <a href="https://www.instagram.com/celesteverde_sec?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <span class="text-gray-300 font-semibold text-sm md:text-base group-hover:text-white transition-colors">Instagram</span>
+                </a>
+                
+                <a href="https://whatsapp.com/channel/0029Vb8SAuhBlHpfccqM6Q3B" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12.012 2c5.506 0 9.99 4.475 9.99 9.98 0 2.14-.683 4.122-1.838 5.74L21.43 22l-4.39-1.15a9.92 9.92 0 0 1-5.028 1.35c-5.506 0-9.99-4.475-9.99-9.98S6.506 2 12.012 2zm0 1.637c-4.604 0-8.353 3.743-8.353 8.343 0 1.828.587 3.518 1.583 4.908l.147.205-1.306 3.86 3.96-1.04.195.116a8.27 8.27 0 0 0 3.774.912c4.604 0 8.353-3.743 8.353-8.343S16.616 3.637 12.012 3.637zm4.72 11.233c-.258-.13-1.528-.755-1.764-.842-.236-.087-.408-.13-.58.13-.172.26-.667.842-.818 1.015-.15.174-.301.196-.56.066-.258-.13-1.09-.402-2.077-1.284-.768-.686-1.287-1.534-1.437-1.794-.15-.26-.016-.401.113-.53.116-.115.258-.302.387-.453.13-.151.173-.26.26-.432.086-.173.043-.324-.022-.454-.065-.13-.58-1.401-.795-1.92-.21-.506-.423-.438-.58-.446-.15-.007-.323-.009-.495-.009-.172 0-.451.065-.688.324-.236.26-.903.883-.903 2.152 0 1.27.924 2.498 1.053 2.671.129.173 1.821 2.781 4.412 3.899 2.59 1.118 2.59.745 3.064.69.474-.055 1.528-.624 1.743-1.226.215-.602.215-1.118.15-1.226-.064-.108-.236-.173-.495-.303z"/></svg>
+                    </div>
+                    <span class="text-gray-300 font-semibold text-sm md:text-base group-hover:text-white transition-colors">WhatsApp</span>
+                </a>
+                
+                <a href="https://x.com/Celesteyverde?s=20" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-black text-white rounded-full flex items-center justify-center shadow-lg border border-white/20 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </div>
+                    <span class="text-gray-300 font-semibold text-sm md:text-base group-hover:text-white transition-colors">X (Twitter)</span>
+                </a>
+                
+                <a href="https://www.facebook.com/people/lacelesteyverde26/61592849967235/?rdid=PwjcaA0hxwKBBQ2A&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1UxQdXSRJZ%2F" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-[#1877F2] text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                    </div>
+                    <span class="text-gray-300 font-semibold text-sm md:text-base group-hover:text-white transition-colors">Facebook</span>
+                </a>
+                
+                <a href="mailto:celesteverdesec@gmail.com" class="flex flex-col items-center gap-3 group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z"/></svg>
+                    </div>
+                    <span class="text-gray-300 font-semibold text-sm md:text-base group-hover:text-white transition-colors">Email</span>
+                </a>
+            
+                <!-- Separador: Nuestros Streams en YouTube -->
+                <div class="w-full flex flex-col items-center mt-8 mb-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-px w-12 bg-white/20"></div>
+                        <span class="text-gray-400 text-xs md:text-sm font-bold tracking-widest uppercase">🎬 Nuestros Streams en YouTube</span>
+                        <div class="h-px w-12 bg-white/20"></div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+                        <a href="https://www.youtube.com/@StreamComercio" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 group">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg border-2 border-red-500/50 group-hover:scale-110 group-hover:border-red-500 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,0,0,0.4)]">
+                                <img src="./stream-comercio-logo.png" alt="Stream Comercio" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-gray-300 font-semibold text-sm md:text-base group-hover:text-white transition-colors">Stream Comercio</span>
+                        </a>
+                        
+                        <a href="https://www.youtube.com/@15debreak" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 group">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg border-2 border-red-500/50 group-hover:scale-110 group-hover:border-red-500 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,0,0,0.4)]">
+                                <img src="./15debreak-logo.png" alt="15 de Break" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-gray-300 font-semibold text-sm md:text-base group-hover:text-white transition-colors">15 de Break</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#05080f] py-8 text-center text-gray-600 text-sm border-t border-white/5">
+        <p>&copy; 2026 Frente de Unidad y Cambio - Celeste y Verde.<br>Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
